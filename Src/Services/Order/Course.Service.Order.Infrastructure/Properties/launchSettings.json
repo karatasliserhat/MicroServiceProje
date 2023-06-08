@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Course.Service.Order.Infrastructure": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:53537;http://localhost:53538"
+    }
+  }
+}

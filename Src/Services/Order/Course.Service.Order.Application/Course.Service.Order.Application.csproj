@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\MicroService.Shareds\MicroService.Shareds.csproj" />
+    <ProjectReference Include="..\Course.Service.Order.Infrastructure\Course.Service.Order.Infrastructure.csproj" />
+    <ProjectReference Include="..\Course.Services.Order.Domain\Course.Services.Order.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

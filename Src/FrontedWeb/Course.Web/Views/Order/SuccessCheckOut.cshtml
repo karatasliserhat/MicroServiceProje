@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "SuccessCheckOut";
+    Layout = "_Layout";
+}
+
+<Div class="text-success mb-2">
+    <p>Sipariş(Ödeme) Durumu:Sipraiş İşlemi Tamamlandı</p>
+    <br />
+    <p>Sipariş(Ödeme)NO: @ViewBag.OrderId</p>
+</Div>
+<div>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Anasayfa</a>
+</div>
+
+

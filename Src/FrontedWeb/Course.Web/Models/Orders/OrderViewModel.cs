@@ -1,0 +1,16 @@
+﻿namespace Course.Web.Models.Orders
+{
+    public class OrderViewModel
+    {
+        public int Id { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public string BuyerId { get; set; }
+
+        public List<OrderItemViewModel> OrderItems { get; set; }
+
+        /*Ödeme Geçmiş alanında ihtiyaçolmadığından alınmadı*/
+        //public AdressDto Adress { get; private set; }
+    }
+}

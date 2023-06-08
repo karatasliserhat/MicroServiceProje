@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "CheckOutHistory";
+    Layout = "_Layout";
+}
+@model List<OrderViewModel>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Ödeme Geçmişim</h5>
+
+                @if (Model.Any())
+                {
+                    <table class="table table-striped table-bordered">
+
+                        <tr>
+                            <th>Sipariş(ödeme) no</th>
+                            <th>Satın Alma Tarihi</th>
+                            <th>DEtaylar</th>
+                        </tr>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td>@order.Id</td>
+                                <td>@order.CreatedDate</td>
+                                <td>
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>Kurs İsmi</th>
+                                            <th>Kurs Fiyat</th>
+                                        </tr>
+                                        @foreach (var item in order.OrderItems)
+                                        {
+                                            <tr>
+                                                <td>@item.ProductName</td>
+                                                <td>@item.Price TL</td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        Ödeme Geçmişini bulunmamaktadır
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

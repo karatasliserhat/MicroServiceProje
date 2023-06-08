@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "sgWJeluvvPvXIOxyIYpwA19xz3gR1MwOWsH6569qjKg=",
+  "Source": "Course.Services.Order.Api",
+  "BasePath": "_content/Course.Services.Order.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

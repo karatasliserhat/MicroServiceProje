@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  catalogdb:
+    image: mongo
+  basketdb:
+    image: redis
+  discount:
+    image: postgres
+  orderdb: 
+    image: mcr.microsoft.com/mssql/server:2019-latest
+  identitydb:
+    image: mcr.microsoft.com/mssql/server
+  rabbitmq:
+    image: rabbitmq:3.11.10-management
+  portainer:
+    image: portainer/portainer-ce:latest
+volumes:
+  catalogdb_volume:
+  discount_volume:
+  orderdb_volume:
+  identitydb_volume:
+  portainer_data:

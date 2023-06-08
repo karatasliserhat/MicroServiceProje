@@ -1,0 +1,11 @@
+Microservice Ports
+
+	Catalog.API => 5111
+	PhotoStock.API => 5112
+	Basket.API => 5113
+	Discount.API=> 5114
+	Order.Api => 5115
+	FreePayment.Api=> 5116
+Identity Server => 5001
+Gateway Service=> 5000
+Fronted Web => 5010

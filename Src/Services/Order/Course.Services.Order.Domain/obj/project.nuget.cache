@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "pDx1ExFzdZKGB+LYQFW0ywjqOS13UcSjXj7u+BZ4KV+GyC8HL0WabGq6wewPgoyh7XQ/MvBIZDPsnacLzitEtg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\glb90090219\\source\\repos\\UdemyMicroservices\\Src\\Services\\Order\\Course.Services.Order.Domain\\Course.Services.Order.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\glb90090219\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\glb90090219\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\glb90090219\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

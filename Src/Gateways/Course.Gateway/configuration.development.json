@@ -1,0 +1,111 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5111
+        }
+      ],
+      "UpstreamPathTemplate": "/services/catalog/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuhenticationSchema",
+        "AllowedScopes": [ "catalog_scope_fullpermission" ]
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5112
+        }
+      ],
+      "UpstreamPathTemplate": "/services/photostock/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuhenticationSchema",
+        "AllowedScopes": [ "photos_scope_fullpermission" ]
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5113
+        }
+      ],
+      "UpstreamPathTemplate": "/services/basket/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuhenticationSchema",
+        "AllowedScopes": [ "basket_scope_fullpermission" ]
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5114
+        }
+      ],
+      "UpstreamPathTemplate": "/services/discount/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamSchema": "http",
+      "DelegatingHandlers": [ "TokenExchangeDelegetingHandler" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuhenticationSchema"
+
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5115
+        }
+      ],
+      "UpstreamPathTemplate": "/services/order/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuhenticationSchema",
+        "AllowedScopes": [ "order_fullpermission" ]
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5116
+        }
+      ],
+      "UpstreamPathTemplate": "/services/freepayment/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamSchema": "http",
+      "DelegatingHandlers": [ "TokenExchangeDelegetingHandler" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuhenticationSchema"
+
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+}

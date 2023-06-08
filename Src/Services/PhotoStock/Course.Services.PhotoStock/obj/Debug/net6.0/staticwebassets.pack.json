@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\glb90090219\\source\\repos\\UdemyMicroservices\\Src\\Services\\PhotoStock\\Course.Services.PhotoStock\\wwwroot\\Photos\\01335f72-b346-406d-9437-52f15b15a884.PNG",
+      "PackagePath": "staticwebassets\\Photos\\01335f72-b346-406d-9437-52f15b15a884.PNG"
+    },
+    {
+      "Id": "C:\\Users\\glb90090219\\source\\repos\\UdemyMicroservices\\Src\\Services\\PhotoStock\\Course.Services.PhotoStock\\wwwroot\\Photos\\1c361bd8-a162-4c92-b30e-64e791a1d153.PNG",
+      "PackagePath": "staticwebassets\\Photos\\1c361bd8-a162-4c92-b30e-64e791a1d153.PNG"
+    },
+    {
+      "Id": "C:\\Users\\glb90090219\\source\\repos\\UdemyMicroservices\\Src\\Services\\PhotoStock\\Course.Services.PhotoStock\\wwwroot\\Photos\\45684673-320f-4cf0-b7cb-7b023d9e76e6.PNG",
+      "PackagePath": "staticwebassets\\Photos\\45684673-320f-4cf0-b7cb-7b023d9e76e6.PNG"
+    },
+    {
+      "Id": "C:\\Users\\glb90090219\\source\\repos\\UdemyMicroservices\\Src\\Services\\PhotoStock\\Course.Services.PhotoStock\\wwwroot\\Photos\\7f024c9d-684b-4249-90e4-c5d77f054888.png",
+      "PackagePath": "staticwebassets\\Photos\\7f024c9d-684b-4249-90e4-c5d77f054888.png"
+    },
+    {
+      "Id": "C:\\Users\\glb90090219\\source\\repos\\UdemyMicroservices\\Src\\Services\\PhotoStock\\Course.Services.PhotoStock\\wwwroot\\Photos\\b71f3140-20de-41ea-850b-cf0b0525356e.PNG",
+      "PackagePath": "staticwebassets\\Photos\\b71f3140-20de-41ea-850b-cf0b0525356e.PNG"
+    },
+    {
+      "Id": "C:\\Users\\glb90090219\\source\\repos\\UdemyMicroservices\\Src\\Services\\PhotoStock\\Course.Services.PhotoStock\\wwwroot\\Photos\\e339e258-88e1-4647-b053-224cf7d8befd.png",
+      "PackagePath": "staticwebassets\\Photos\\e339e258-88e1-4647-b053-224cf7d8befd.png"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Course.Services.PhotoStock.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Course.Services.PhotoStock.props",
+      "PackagePath": "build\\Course.Services.PhotoStock.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Course.Services.PhotoStock.props",
+      "PackagePath": "buildMultiTargeting\\Course.Services.PhotoStock.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Course.Services.PhotoStock.props",
+      "PackagePath": "buildTransitive\\Course.Services.PhotoStock.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

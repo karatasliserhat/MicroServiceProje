@@ -1,0 +1,153 @@
+version: "4.19"
+services:
+  catalogdb:
+    container_name: catalogdb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - catalogdb_volume:/data/db
+  basketdb:
+    container_name: basketdb
+    restart: always
+    ports:
+      - "6379:6379"
+  discount:
+    container_name: discount
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - discount_volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=Ner100156550055Ser.
+      - POSTGRES_DB=discountdb
+  orderdb: 
+    container_name: orderdb
+    restart: always
+    ports:
+      - "1444:1433"
+    user: root
+    volumes:
+      - orderdb_volume:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Ner100156550055Ser.
+  identitydb:
+    container_name: identitydb
+    restart: always
+    ports:
+      - "1433:1433"
+    user: root
+    volumes:
+      - identitydb_volume:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Ner100156550055Ser.
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  catalog.api:
+    container_name: catalog.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMq=rabbitmq
+      - IdentityServerClient=http://identityserver.api:5001
+      - DatabaseSettings:ConnectionString=mongodb://catalogdb:27017
+    ports:
+      - "5111:80"
+    depends_on:
+      - catalogdb
+  identityserver.api:
+    container_name: identityserver.api
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:DefaultConnection=Server=identitydb,1433;Database=IdentityDb;User=sa;Password=Ner100156550055Ser."
+    ports:
+      - "5001:80"
+    depends_on:
+      - identitydb
+  basket.api:
+    container_name: basket.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerClient=http://identityserver.api:5001
+      - RedisConnectSettings=Host:basketdb
+      - RedisConnectSettings=Port:6379
+      - RabbitMq=rabbitmq
+    ports:
+      - "5113:80"
+    depends_on:
+      - basketdb
+  photostock.api:
+    container_name: photostock.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerClient=http://identityserver.api:5001
+    ports:
+      - "5112:80"
+    volumes:
+      - type: bind
+        source: D:\coursePhotos
+        target: /app/wwwroot/Photos
+  discount.api:
+    container_name: discount.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerClient=http://identityserver.api:5001
+      - "ConnectionStrings:PostgreSql=User ID=admin;Password=Ner100156550055Ser.;Server=discount;Port=5432;Database=discountdb;Integrated Security=true;Pooling=true"
+    ports:
+      - "5114:80"
+    depends_on:
+      - discount
+  freepayment.api:
+    container_name: freepayment.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerClient=http://identityserver.api:5001
+      - RabbitMq=rabbitmq
+    ports:
+      - "5116:80"
+  order.api:
+    container_name: order.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerClient=http://identityserver.api:5001
+      - "ConnectionStrings:DefaultConnection=Server=orderdb,1433;Database=OrderDb;User=sa;Password=Ner100156550055Ser."
+      - RabbitMq=rabbitmq
+    ports:
+      - "5115:80"
+    depends_on:
+      - orderdb
+  gateway.api:
+    container_name: gateway.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerClient=http://identityserver.api:5001
+    ports:
+      - "5000:80"
+  aspnetcoreweb.api:
+    container_name: aspnetcoreweb.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ServiceApiSettings:IdentityBaseUri=http://identityserver.api:5001
+      - ServiceApiSettings:GatewayBaseUri=http://gateway.api:5000
+    ports:
+      - "5010:80"
+    depends_on:
+      - catalog.api
+      - identityserver.api
+      - basket.api
+      - photostock.api
+      - discount.api
+      - freepayment.api
+      - order.api
+      - gateway.api

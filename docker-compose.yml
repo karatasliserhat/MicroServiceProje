@@ -1,0 +1,64 @@
+version: "4.19"
+services:
+  catalogdb:
+    image: mongo
+  basketdb:
+    image: redis
+  discount:
+    image: postgres
+  orderdb: 
+    image: mcr.microsoft.com/mssql/server:2019-latest
+  identitydb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+  rabbitmq:
+    image: rabbitmq:3.11.10-management
+  catalog.api:
+    image: catalog_api_image
+    build:
+      context: .
+      dockerfile: Src/Services/Catalog/Course.Services.Catalog/Dockerfile
+  identityserver.api:
+    image: identityserver_api_image
+    build:
+      context: .
+      dockerfile: Src/IdentityServer/Course.IdentityServer/Dockerfile
+  basket.api:
+    image: basket_api_image
+    build: 
+      context: .
+      dockerfile: Src/Services/Basket/Course.Service.Basket/Dockerfile
+  photostock.api:
+    image: photostock_api_image
+    build:
+      context: .
+      dockerfile: Src/Services/PhotoStock/Course.Services.PhotoStock/Dockerfile
+  discount.api:
+    image: discount_api_image
+    build:
+      context: .
+      dockerfile: Src/Services/Discount/Course.Service.Discount/Dockerfile
+  freepayment.api:
+    image: freepayment_api_image
+    build:
+      context: .
+      dockerfile: Src/Services/FreePayment/Course.Services.FreePayment/Dockerfile
+  order.api:
+    image: order_api_image
+    build:
+      context: .
+      dockerfile: Src/Services/Order/Course.Services.Order.Api/Dockerfile
+  gateway.api:
+    image: gateway_api_image
+    build:
+      context: .
+      dockerfile: Src/Gateways/Course.Gateway/Dockerfile
+  aspnetcoreweb.api:
+    image: aspnetcoreweb_api_image
+    build:
+      context: .
+      dockerfile: Src/FrontedWeb/Course.Web/Dockerfile
+volumes:
+  catalogdb_volume:
+  discount_volume:
+  orderdb_volume:
+  identitydb_volume:

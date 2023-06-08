@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "CheckhOut";
+    Layout = "_Layout";
+}
+@model CheckOutInfoInput
+
+<form asp-controller="Order" asp-action="CheckhOut" method="post">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Adres Bilgiler</h5>
+
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Province"></label>
+                        <input type="text" class="form-control" asp-for="@Model.Province">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="District"></label>
+                        <input type="text" class="form-control" asp-for="@Model.District">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Street"></label>
+                        <input type="text" class="form-control" asp-for="@Model.Street">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="ZipCode"></label>
+                        <input type="text" class="form-control" asp-for="@Model.ZipCode">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Line"></label>
+                        <input type="text" class="form-control" asp-for="@Model.Line">
+                    </div>
+                    <h5 class="card-title">Ödeme Bilgileri</h5>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="CardName"></label>
+                        <input type="text" class="form-control" asp-for="@Model.CardName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="CardNumber"></label>
+                        <input type="text" class="form-control" asp-for="@Model.CardNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Expiration"></label>
+                        <input type="text" class="form-control" asp-for="@Model.Expiration">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="CVV"></label>
+                        <input type="text" class="form-control" asp-for="@Model.CVV">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sipariş Özeti</h5>
+                    <table class="table table-striped">
+                        @foreach (var item in ViewBag.Basket.BasketItems as List<BasketItemViewModel>)
+                        {
+                            <tr>
+                                <td>@item.CourseName</td>
+                                <td>@item.Priace</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>@(ViewBag.Basket.HasDiscount?"İndirimli Toplam Tutar":"Toplam Tutar")</td>
+                            <td>@ViewBag.Basket.TotalPriace TL</td>
+                        </tr>
+                    </table>
+                    <button type="submit" class="btn btn-success">Ödeme Yap</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

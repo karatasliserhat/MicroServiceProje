@@ -1,0 +1,33 @@
+﻿@model SignInInput
+@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-dark">Üye Giriş</h5>
+                <form asp-action="SignIn" asp-controller="Auth" method="post">
+                    <div class="alert alert-danger mb-2" asp-validation-summary="ModelOnly"></div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input type="email" class="form-control" asp-for="Email" aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input asp-for="IsRemember" type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label asp-for="IsRemember" class="form-check-label" for="exampleCheck1"></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
